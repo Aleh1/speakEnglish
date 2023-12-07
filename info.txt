@@ -25,3 +25,6 @@
  повтор воспроизведения слова клавишей R repit
 
  регулировка скорости воспроизведения текста 
+
+бэкап базы данных
+ mysqldump -u root -p speakEnglish > speakEnglish.sql

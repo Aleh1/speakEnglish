@@ -20,7 +20,7 @@ while True:
         while True:
             mycursor = mydb.cursor()
             # ввод в ручном режиме
-            username = input("Введите номер от 1 до 2: ")
+            username = input("Введите номер от 1 до 10: ")
             input_namber = "select * from words where id =" + username 
             mycursor.execute(input_namber)
             myresult = mycursor.fetchall()
