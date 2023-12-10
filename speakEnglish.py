@@ -21,7 +21,7 @@ while True:
         while True:
             mycursor = mydb.cursor()
             # ввод в ручном режиме
-            username = input("Введите номер от 1 до 10: ")
+            username = input("Введите номер от 1 до 20: ")
             input_namber = "select * from words where id =" + username 
             mycursor.execute(input_namber)
             myresult = mycursor.fetchall()
@@ -57,7 +57,7 @@ while True:
         while True:
             mycursor = mydb.cursor()
             # ввод в рандомном режиме
-            value = random.randint(1,10)
+            value = random.randint(1,20)
             #print(value)
             input_namber = "select * from words where id =" + str(value) 
             mycursor.execute(input_namber)
@@ -76,7 +76,25 @@ while True:
             converter.say(word)   
             converter.runAndWait() 
             #print('Введите Enter')
-            ent = input ("Для продолжения нажмите Enter")
-
+            while True:
+                ent = input ("Для продолжения нажмите Enter для повтора нажмите R: ")
+                #повторяем последее действие
+                if ent == 'R':
+                    print(word)
+                    # включаем озвучивание текста
+                    converter = pyttsx3.init() 
+                    # speed 
+                    converter.setProperty('rate', 110) 
+                    # Set volume 0-1 громкость
+                    converter.setProperty('volume', 1) 
+                    converter.say(word)   
+                    converter.runAndWait() 
+                    #print('Введите Enter')
+                #переходим к следующему     
+                if ent == "":
+                    break
+                # функцыя выхода из уровня в разработке
+                
+                
     else:
         print('Вы ввели не правильное значение')
