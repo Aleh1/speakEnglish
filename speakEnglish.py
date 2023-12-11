@@ -12,6 +12,8 @@ mydb = mysql.connector.connect(
 )
 
 while True:
+    #переменная для второго While
+    u = 1
     print('1 программа изучения слов')
     print('2 программа озвучивания текста')
     print('3 программа рандомный выбор слов')
@@ -54,7 +56,7 @@ while True:
 
        
     elif command == '3':
-        while True:
+        while u == 1:
             mycursor = mydb.cursor()
             # ввод в рандомном режиме
             value = random.randint(1,20)
@@ -77,7 +79,7 @@ while True:
             converter.runAndWait() 
             #print('Введите Enter')
             while True:
-                ent = input ("Для продолжения нажмите Enter для повтора нажмите R: ")
+                ent = input ("Для продолжения нажмите Enter \n для повтора нажмите R для выхода EXIT: ")
                 #повторяем последее действие
                 if ent == 'R':
                     print(word)
@@ -93,8 +95,13 @@ while True:
                 #переходим к следующему     
                 if ent == "":
                     break
-                # функцыя выхода из уровня в разработке
-                
+                # функцыя выхода из уровня в режим меню(в разработке)
+                if ent == 'EXIT':
+                    #должна выйти в главное меню для выбора программы 1 2 3
+                    print('программа завершeна')
+                    pass #pass continue break
+                    u = 0 # переменная становится 0 
+                    
                 
     else:
         print('Вы ввели не правильное значение')
