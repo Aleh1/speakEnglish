@@ -42,7 +42,6 @@ while True:
             converter.runAndWait() 
     
     elif command == '2':
-        #print('Находится в разработке')
         speak = input('Введите текст и нажмите Enter: ')
         # включаем озвучивание текста
         converter = pyttsx3.init() 
@@ -57,6 +56,8 @@ while True:
        
     elif command == '3':
         # команда 3 запускается
+        print('приветствие')
+        print('Для продолжения нажмите Enter \n для повтора нажмите R для выхода EXIT:')
         while command_3_work == 1:
             mycursor = mydb.cursor()
             # ввод в рандомном режиме
@@ -78,9 +79,9 @@ while True:
             converter.setProperty('volume', 1) 
             converter.say(word)   
             converter.runAndWait() 
-            #print('Введите Enter')
+            
             while command_3_work == 1:
-                ent = input ("Для продолжения нажмите Enter \n для повтора нажмите R для выхода EXIT: ")
+                ent = input ("Введите команду: ")
                 #повторяем последее действие
                 if ent == 'R':
                     print(word)
